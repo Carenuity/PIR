@@ -13,7 +13,7 @@ https://chipglobe-dev.web.app/PIR
 
 - Connect the VCC pin of the PIR sensor to the 3.3V pin on the D1-Mini microcontroller.
 - Connect the GND pin of the PIR sensor to the GND pin on the D1-Mini microcontroller.
-- Connect the OUT pin of the PIR sensor to any digital pin (e.g. D1) on the D1-Mini microcontroller.
+- Connect the OUT pin of the PIR sensor to any digital pin D3 on the D1-Mini microcontroller.
 - Connect the SDA pin of the OLED display to the D2 pin on the D1-Mini microcontroller.
 - Connect the SCL pin of the OLED display to the D1 pin on the D1-Mini microcontroller.
 - Finally, connect the VCC and GND pins of the OLED display to the 3.3V and GND pins on the D1-Mini microcontroller, respectively.
