@@ -3,9 +3,9 @@
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
-#define PIR_PIN D3 // Define the pin to which the PIR sensor is connected
+#define PIR_PIN 7 // Define the pin to which the PIR sensor is connected
 
-U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, /* clock=*/ D1, /* data=*/ D2, /* reset=*/ U8X8_PIN_NONE); // Setup U8g2 library with D1 (SCL) and D2 (SDA) pins for SSD1306 OLED
+U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, /* clock=*/ 10, /* data=*/ 8, /* reset=*/ U8X8_PIN_NONE); // Setup U8g2 library with D1 (SCL) and D2 (SDA) pins for SSD1306 OLED
 
 void setup() {
   pinMode(PIR_PIN, INPUT); // Set PIR pin as input
