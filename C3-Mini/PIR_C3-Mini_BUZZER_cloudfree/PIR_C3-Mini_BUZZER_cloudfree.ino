@@ -1,5 +1,5 @@
 int pirPin = 7;      // PIR sensor pin
-int buzzerPin = 4;   // Buzzer pin
+int buzzerPin = 5;   // Buzzer pin
 int val;
 
 void setup() {
