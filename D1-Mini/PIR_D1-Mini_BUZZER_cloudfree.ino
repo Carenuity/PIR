@@ -1,34 +1,25 @@
-/*
- * Created by ArduinoGetStarted.com
- *
- * This example code is in the public domain
- *
- * Tutorial page: https://arduinogetstarted.com/tutorials/arduino-motion-sensor-piezo-buzzer
- */
- #include <Arduino.h>
-const int MOTION_SENSOR_PIN = D3;   // Arduino pin connected to the OUTPUT pin of motion sensor
-const int BUZZER_PIN        = D5;   // Arduino pin connected to Buzzer's pin
-int motionStateCurrent      = LOW; // current  state of motion sensor's pin
-int motionStatePrevious     = LOW; // previous state of motion sensor's pin
+int pirPin = D3;      // PIR sensor pin
+int buzzerPin = D8;   // Buzzer pin
+int val;
 
 void setup() {
-  Serial.begin(9600);                // initialize serial
-  pinMode(MOTION_SENSOR_PIN, INPUT); // set arduino pin to input mode
-  pinMode(BUZZER_PIN, OUTPUT);          // set arduino pin to output mode
+    pinMode(pirPin, INPUT);
+    pinMode(buzzerPin, OUTPUT);
+    Serial.begin(115200);
 }
 
 void loop() {
-  motionStatePrevious = motionStateCurrent;   // store old state     
-  motionStateCurrent  = digitalRead(MOTION_SENSOR_PIN); // read new state   
-  
-  if (motionStatePrevious == LOW && motionStateCurrent == HIGH) 
-  {
-    digitalWrite(BUZZER_PIN, HIGH); // turn on
-    delay(5000);
-  }
-  else
-  if (motionStatePrevious == HIGH && motionStateCurrent == LOW) 
-  {
-    digitalWrite(BUZZER_PIN, LOW);  // turn off
-  }
+    val = digitalRead(pirPin); // Read PIR sensor state (LOW = no motion, HIGH = motion)
+    
+    if (val == HIGH) {
+        // Motion detected
+        beepBuzzer();
+    }
+}
+
+void beepBuzzer() {
+    // Beep the buzzer with a constant frequency
+    tone(buzzerPin, 1000);  // 1000 Hz frequency
+    delay(500);            // Beep for 1 second
+    noTone(buzzerPin);      // Turn off the buzzer
 }
